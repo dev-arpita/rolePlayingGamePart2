@@ -1,31 +1,33 @@
-const hotel1 = {
-	name: 'Safari View',
-	rooms: 30,
-	stars: '⭐⭐⭐⭐⭐',
-	costPerNightAdult: 240,
+const animalForRelease1 = {
+    name: 'Tilly',
+    species: 'tiger',
+    weightKg: 56,
+    age: 2,
+    dateOfRelease: '03-02-2022'
+}
+const animalForRelease2 = {
+    name: 'Nelly',
+    species: 'elephant',
+    weightKg: 320,
+    age: 16,
+    dateOfRelease: '03-02-2022'
 }
 
-const hotel2 = {
-	name: 'Leopard Mansion',
-	rooms: 96,
-	stars: '⭐⭐⭐',
-	costPerNightAdult: 120,
-}
-function NationalParkHotels(data) {
+function Animal(data){
     this.name = data.name
-    this.rooms = data.rooms
-    this.stars = data.stars
-    this.costPerNightAdult = data.costPerNightAdult
+    this.species = data.species
+    this.weightKg = data.weightKg
+    this.age = data.age
+    this.dateOfRelease = data.dateOfRelease
+	this.summariseAnimal = function(){
+		console.log(`${this.name} is a ${this.age} year old
+		${this.species} which weighs ${this.weightKg}kg and was
+		released into the wild on ${this.dateOfRelease}`)
+	}
 }
-const hotelone = new NationalParkHotels(hotel1)
-const hotelTwo = new NationalParkHotels(hotel2)
- console.log(hotelone)
- console.log(hotelTwo)
-/*
-Challenge:
-1. Create a constructor function called NationalParkHotels.
-2. Have it take in "data" as a parameter
-3. Assign the data to "this"
-4. Log out the result of creating an instance of
-   NationalParkHotels for each hotel.
-*/
+
+const tillyTheTiger = new Animal(animalForRelease1)
+const nellyTheElephant = new Animal(animalForRelease2)
+
+tillyTheTiger.summariseAnimal()
+nellyTheElephant.summariseAnimal()
