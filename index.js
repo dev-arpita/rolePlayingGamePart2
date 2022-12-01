@@ -1,33 +1,46 @@
-const animalForRelease1 = {
-    name: 'Tilly',
-    species: 'tiger',
-    weightKg: 56,
-    age: 2,
-    dateOfRelease: '03-02-2022'
-}
-const animalForRelease2 = {
-    name: 'Nelly',
-    species: 'elephant',
-    weightKg: 320,
-    age: 16,
-    dateOfRelease: '03-02-2022'
+const hotel1 = {
+	name: 'Safari View',
+	rooms: 30,
+	stars: '⭐⭐⭐⭐⭐',
+	costPerNightAdult: 240,
+	costPerNightChild: 180,
 }
 
-function Animal(data){
+const hotel2 = {
+	name: 'Leopard Mansion',
+	rooms: 96,
+	stars: '⭐⭐⭐',
+	costPerNightAdult: 120,
+	costPerNightChild: 180,
+}
+
+
+function NationalParkHotels(data){
     this.name = data.name
-    this.species = data.species
-    this.weightKg = data.weightKg
-    this.age = data.age
-    this.dateOfRelease = data.dateOfRelease
-	this.summariseAnimal = function(){
-		console.log(`${this.name} is a ${this.age} year old
-		${this.species} which weighs ${this.weightKg}kg and was
-		released into the wild on ${this.dateOfRelease}`)
+    this.rooms = data.rooms
+    this.stars = data.stars
+    this.costPerNightAdult = data.costPerNightAdult
+    this.costPerNightChild = data.costPerNightChild
+
+	this.summariseHotel = function(){
+		const totalPrice = this.costPerNightAdult * 2 + this.costPerNightChild * 2
+		console.log(`A one night stay at the ${this.name} for two adults and
+		two children costs a total of ${totalPrice}`)
 	}
 }
 
-const tillyTheTiger = new Animal(animalForRelease1)
-const nellyTheElephant = new Animal(animalForRelease2)
+const safariView = new NationalParkHotels(hotel1)
+const leopardMansion = new NationalParkHotels(hotel2)
+safariView.summariseHotel
+leopardMansion.summariseHotel
 
-tillyTheTiger.summariseAnimal()
-nellyTheElephant.summariseAnimal()
+/*
+Challenge:
+1. Create a method on the constructor function called
+   "summariseHotel".
+2. Have it log out the following sentence 'A one night stay
+   at the <HOTEL NAME> for two adults and two children costs a
+   total of <PRICE>'
+3. Your method will need the logic to calculate the price.
+*/
+
