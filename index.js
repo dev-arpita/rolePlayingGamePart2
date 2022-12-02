@@ -14,23 +14,7 @@ when we set up new characters down at the very bottom of the app.
 -See if you can work out what needs to change there to keep the
 app working.
 */
-const characterData = {
-    hero: {
-    elementId: "hero",
-    name: "Wizard",
-    avatar: "images/wizard.png",
-    health: 60,
-    diceCount: 3
-},
-
- monster: {
-    elementId: "monster",
-    name: "Orc",
-    avatar: "images/orc.png",
-    health: 10,
-    diceCount: 1
-}
-}
+import {characterData} from "./data.js"
 
 function Character(data) {
     Object.assign(this, data)
