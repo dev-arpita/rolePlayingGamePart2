@@ -4,20 +4,32 @@ function getDiceRollArray(diceCount) {
     });
 }
 
-const hero = {
+/*
+CHALLENGE
+-Create a new const called characterData and set it equals to an
+object which holds both our hero and monster objects.
+
+-Think about how we access the data from our new object
+when we set up new characters down at the very bottom of the app.
+-See if you can work out what needs to change there to keep the
+app working.
+*/
+const characterData = {
+    hero: {
     elementId: "hero",
     name: "Wizard",
     avatar: "images/wizard.png",
     health: 60,
     diceCount: 3
-}
+},
 
-const monster = {
+ monster: {
     elementId: "monster",
     name: "Orc",
     avatar: "images/orc.png",
     health: 10,
     diceCount: 1
+}
 }
 
 function Character(data) {
@@ -45,22 +57,13 @@ function Character(data) {
     }
 }
 
-//CHALLENGE
-// - Make the wizard and orc render
-// - check hint.md if you need a hand
 
-
-/* MINI CHALLENGE */
-// 1 Create one render() function that calls both wizard and orc
-//  so we can control when they render.
-// 2 call the function.
-const wizard = new Character(hero)
-const orc = new Character(monster)
-
-function render(){
-    document.getElementById(wizard.elementId).innerHTML = wizard.getCharacterHtml()
-    document.getElementById(orc.elementId).innerHTML = orc.getCharacterHtml()
+function render() {
+    document.getElementById(wizard.elementId).innerHTML = wizard.getCharacterHtml();
+    document.getElementById(orc.elementId).innerHTML = orc.getCharacterHtml();
 }
+
+/*Does something here need to change?*/
+const wizard = new Character(characterData.hero)
+const orc = new Character(characterData.monster)
 render()
-
-
