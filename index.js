@@ -33,14 +33,7 @@ function Character(data) {
         const { elementId, name, avatar, health, diceCount } = this;
         let diceHtml = this.getDiceHtml(diceCount);
 
-/*
-CHALLENGE
-- instead of setting the innerHTML from right here in the contructor,
-make it so that we just return that literal string of HTML
-- This will break the app. Don't worry!
-*/
-
-        return `
+           return `
             <div class="character-card">
                 <h4 class="name"> ${name} </h4>
                 <img class="avatar" src="${avatar}" />
@@ -49,12 +42,25 @@ make it so that we just return that literal string of HTML
                     ${diceHtml}
                 </div>
             </div>`;
-
     }
 }
 
-const wizard = new Character(hero)
-wizard.getCharacterHtml()
+//CHALLENGE
+// - Make the wizard and orc render
+// - check hint.md if you need a hand
 
+
+/* MINI CHALLENGE */
+// 1 Create one render() function that calls both wizard and orc
+//  so we can control when they render.
+// 2 call the function.
+const wizard = new Character(hero)
 const orc = new Character(monster)
-orc.getCharacterHtml()
+
+function render(){
+    document.getElementById(wizard.elementId).innerHTML = wizard.getCharacterHtml()
+    document.getElementById(orc.elementId).innerHTML = orc.getCharacterHtml()
+}
+render()
+
+
