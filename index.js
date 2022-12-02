@@ -4,11 +4,6 @@ function getDiceRollArray(diceCount) {
     });
 }
 
-// CHALLENGE
-// 1. Add this function as a method of our character constructor
-// 2. Make a small change to getCharacterHtml to make the app work again
-
-
 const hero = {
     elementId: "hero",
     name: "Wizard",
@@ -26,7 +21,7 @@ const monster = {
 }
 
 function Character(data) {
-Object.assign(this, data)
+    Object.assign(this, data)
 
      this.getDiceHtml = function(diceCount) {
         return getDiceRollArray(diceCount).map(function(num){
@@ -38,8 +33,14 @@ Object.assign(this, data)
         const { elementId, name, avatar, health, diceCount } = this;
         let diceHtml = this.getDiceHtml(diceCount);
 
+/*
+CHALLENGE
+- instead of setting the innerHTML from right here in the contructor,
+make it so that we just return that literal string of HTML
+- This will break the app. Don't worry!
+*/
 
-        document.getElementById(elementId).innerHTML = `
+        return `
             <div class="character-card">
                 <h4 class="name"> ${name} </h4>
                 <img class="avatar" src="${avatar}" />
@@ -48,6 +49,7 @@ Object.assign(this, data)
                     ${diceHtml}
                 </div>
             </div>`;
+
     }
 }
 
