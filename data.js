@@ -16,4 +16,4 @@ const characterData = {
     }
 }
 
-export {characterData}
+export default characterData
