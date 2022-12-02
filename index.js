@@ -1,20 +1,5 @@
-function getDiceRollArray(diceCount) {
-    return new Array(diceCount).fill(0).map(function(){
-    return Math.floor(Math.random() * 6) + 1
-    });
-}
-
-/*
-CHALLENGE
--Create a new const called characterData and set it equals to an
-object which holds both our hero and monster objects.
-
--Think about how we access the data from our new object
-when we set up new characters down at the very bottom of the app.
--See if you can work out what needs to change there to keep the
-app working.
-*/
 import {characterData} from "./data.js"
+import {getDiceRollArray} from "./utils.js"
 
 function Character(data) {
     Object.assign(this, data)
