@@ -4,11 +4,10 @@ function getDiceRollArray(diceCount) {
     });
 }
 
-function getDiceHtml(diceCount) {
-    return getDiceRollArray(diceCount).map(function(num){
-        return  `<div class="dice">${num}</div>`
-    }).join('')
-}
+// CHALLENGE
+// 1. Add this function as a method of our character constructor
+// 2. Make a small change to getCharacterHtml to make the app work again
+
 
 const hero = {
     elementId: "hero",
@@ -27,16 +26,18 @@ const monster = {
 }
 
 function Character(data) {
-/*CHALLENGE
--Use what you learned in the previous scrim to
-remove the following 5 lines of code
-*/
 Object.assign(this, data)
 
+     this.getDiceHtml = function(diceCount) {
+        return getDiceRollArray(diceCount).map(function(num){
+            return  `<div class="dice">${num}</div>`
+        }).join('')
+    }
 
     this.getCharacterHtml = function () {
         const { elementId, name, avatar, health, diceCount } = this;
-        let diceHtml = getDiceHtml(diceCount);
+        let diceHtml = this.getDiceHtml(diceCount);
+
 
         document.getElementById(elementId).innerHTML = `
             <div class="character-card">
@@ -48,7 +49,6 @@ Object.assign(this, data)
                 </div>
             </div>`;
     }
-
 }
 
 const wizard = new Character(hero)
